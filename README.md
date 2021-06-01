@@ -79,13 +79,13 @@ Again, more information [https://dortania.github.io/OpenCore-Install-Guide/ktext
 
 These are the specs for my AMD system. Files in this repo (OpenCore configuration, drivers and .kexts) work on this hardware.
 
-* CPU Ryzen 2700X, not overclocked
+* CPU Ryzen 3900X
 * Motherboard ASRock B450M Pro4
-* RAM G-Skill Ripjaws V 2x16Gb 3200 CL16
-* Video Sapphire RX 570 4Gb
-* SSD Crucial MX500 500Gb SATA3
+* RAM HyperX 2x16Gb 3200
+* Video Sapphire RX 580 8Gb Special Edition
+* SSD ADATA XPG 1TB m2
 
-These files will also probably work with RX 560, RX 580 and RX 590 GPUs. RX 550 won't work.
+These files will also probably work with RX 560, RX 570 and RX 590 GPUs. RX 550 won't work.
 
 ## Assorted Notes
 
