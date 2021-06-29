@@ -4,6 +4,41 @@
 <dict>
 	<key>ACPI</key>
 	<dict>
+		<key>Add</key>
+		<array>
+			<dict>
+				<key>Comment</key>
+				<string>My custom DSDT</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>DSDT.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>SSDT-EC-USBX</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-EC-USBX.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>SSDT-EC-USBX-AMD.aml</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-EC-USBX-AMD.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>SSDT-EC.aml</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-EC.aml</string>
+			</dict>
+		</array>
 		<key>Delete</key>
 		<array>
 			<dict>
@@ -103,47 +138,9 @@
 			<key>ResetLogoStatus</key>
 			<false/>
 		</dict>
-		<key>Add</key>
-		<array>
-			<dict>
-				<key>Enabled</key>
-				<true/>
-				<key>Comment</key>
-				<string>SSDT-EC-USBX-DESKTOP.aml</string>
-				<key>Path</key>
-				<string>SSDT-EC-USBX-DESKTOP.aml</string>
-			</dict>
-		</array>
 	</dict>
 	<key>Booter</key>
 	<dict>
-		<key>Patch</key>
-		<array>
-			<dict>
-				<key>Arch</key>
-				<string>Any</string>
-				<key>Comment</key>
-				<string>macOS to hacOS</string>
-				<key>Count</key>
-				<integer>1</integer>
-				<key>Enabled</key>
-				<false/>
-				<key>Find</key>
-				<data>bWFjT1M=</data>
-				<key>Identifier</key>
-				<string>Apple</string>
-				<key>Limit</key>
-				<integer>0</integer>
-				<key>Mask</key>
-				<data></data>
-				<key>Replace</key>
-				<data>aGFjT1M=</data>
-				<key>ReplaceMask</key>
-				<data></data>
-				<key>Skip</key>
-				<integer>0</integer>
-			</dict>
-		</array>
 		<key>MmioWhitelist</key>
 		<array>
 			<dict>
@@ -165,8 +162,6 @@
 		</array>
 		<key>Quirks</key>
 		<dict>
-			<key>AllowRelocationBlock</key>
-			<false/>
 			<key>AvoidRuntimeDefrag</key>
 			<true/>
 			<key>DevirtualiseMmio</key>
@@ -196,7 +191,7 @@
 			<key>RebuildAppleMemoryMap</key>
 			<true/>
 			<key>SetupVirtualMap</key>
-			<true/>
+			<false/>
 			<key>SignalAppleOS</key>
 			<false/>
 			<key>SyncRuntimePermissions</key>
@@ -207,10 +202,10 @@
 	<dict>
 		<key>Add</key>
 		<dict>
-			<key>PciRoot(0x0)/Pci(0x1,0x3)/Pci(0x0,0x2)/Pci(0x1,0x0)/Pci(0x0,0x0)</key>
+			<key>PciRoot(0x0)/Pci(0x1b,0x0)</key>
 			<dict>
-				<key>built-in</key>
-				<data>AQ==</data>
+				<key>layout-id</key>
+				<data>AQAAAA==</data>
 			</dict>
 		</dict>
 		<key>Delete</key>
@@ -221,12 +216,10 @@
 		<key>Add</key>
 		<array>
 			<dict>
-				<key>Arch</key>
-				<string>x86_64</string>
 				<key>BundlePath</key>
 				<string>Lilu.kext</string>
 				<key>Comment</key>
-				<string>Patch engine</string>
+				<string></string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
@@ -234,17 +227,15 @@
 				<key>MaxKernel</key>
 				<string></string>
 				<key>MinKernel</key>
-				<string>10.0.0</string>
+				<string></string>
 				<key>PlistPath</key>
 				<string>Contents/Info.plist</string>
 			</dict>
 			<dict>
-				<key>Arch</key>
-				<string>x86_64</string>
 				<key>BundlePath</key>
 				<string>VirtualSMC.kext</string>
 				<key>Comment</key>
-				<string>SMC emulator</string>
+				<string></string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
@@ -252,35 +243,15 @@
 				<key>MaxKernel</key>
 				<string></string>
 				<key>MinKernel</key>
-				<string>10.0.0</string>
-				<key>PlistPath</key>
-				<string>Contents/Info.plist</string>
-			</dict>
-			<dict>
-				<key>Arch</key>
-				<string>x86_64</string>
-				<key>BundlePath</key>
-				<string>WhateverGreen.kext</string>
-				<key>Comment</key>
-				<string>Video patches</string>
-				<key>Enabled</key>
-				<true/>
-				<key>ExecutablePath</key>
-				<string>Contents/MacOS/WhateverGreen</string>
-				<key>MaxKernel</key>
 				<string></string>
-				<key>MinKernel</key>
-				<string>12.0.0</string>
 				<key>PlistPath</key>
 				<string>Contents/Info.plist</string>
 			</dict>
 			<dict>
-				<key>Arch</key>
-				<string>x86_64</string>
 				<key>BundlePath</key>
 				<string>AppleALC.kext</string>
 				<key>Comment</key>
-				<string>Audio patches</string>
+				<string>Sound</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
@@ -288,57 +259,87 @@
 				<key>MaxKernel</key>
 				<string></string>
 				<key>MinKernel</key>
-				<string>12.0.0</string>
+				<string></string>
 				<key>PlistPath</key>
 				<string>Contents/Info.plist</string>
 			</dict>
 			<dict>
-				<key>Arch</key>
-				<string>x86_64</string>
 				<key>BundlePath</key>
 				<string>AppleMCEReporterDisabler.kext</string>
 				<key>Comment</key>
-				<string>AppleMCEReporter disabler</string>
+				<string></string>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 				<key>ExecutablePath</key>
 				<string></string>
 				<key>MaxKernel</key>
 				<string></string>
 				<key>MinKernel</key>
-				<string>19.0.0</string>
-				<key>PlistPath</key>
-				<string>Contents/Info.plist</string>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string></string>
-				<key>Enabled</key>
-				<true/>
-				<key>MaxKernel</key>
-				<string></string>
-				<key>MinKernel</key>
-				<string></string>
-				<key>BundlePath</key>
-				<string>AMD-USB-Map.kext</string>
-				<key>ExecutablePath</key>
 				<string></string>
 				<key>PlistPath</key>
 				<string>Contents/Info.plist</string>
 			</dict>
 			<dict>
-				<key>Comment</key>
-				<string></string>
-				<key>Enabled</key>
-				<true/>
-				<key>MaxKernel</key>
-				<string></string>
-				<key>MinKernel</key>
-				<string></string>
 				<key>BundlePath</key>
 				<string>RealtekRTL8111.kext</string>
+				<key>Comment</key>
+				<string></string>
+				<key>Enabled</key>
+				<true/>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/RealtekRTL8111</string>
+				<key>MaxKernel</key>
+				<string></string>
+				<key>MinKernel</key>
+				<string></string>
+				<key>PlistPath</key>
+				<string>Contents/Info.plist</string>
+			</dict>
+			<dict>
+				<key>BundlePath</key>
+				<string>WhateverGreen.kext</string>
+				<key>Comment</key>
+				<string></string>
+				<key>Enabled</key>
+				<true/>
+				<key>ExecutablePath</key>
+				<string>Contents/MacOS/WhateverGreen</string>
+				<key>MaxKernel</key>
+				<string></string>
+				<key>MinKernel</key>
+				<string></string>
+				<key>PlistPath</key>
+				<string>Contents/Info.plist</string>
+			</dict>
+			<dict>
+				<key>BundlePath</key>
+				<string>AMDRyzenCPUPowerManagement.kext</string>
+				<key>Comment</key>
+				<string>AMDRyzen CPUPower Management</string>
+				<key>Enabled</key>
+				<true/>
+				<key>ExecutablePath</key>
+				<string>Contents/MacOS/AMDRyzenCPUPowerManagement</string>
+				<key>MaxKernel</key>
+				<string></string>
+				<key>MinKernel</key>
+				<string></string>
+				<key>PlistPath</key>
+				<string>Contents/Info.plist</string>
+			</dict>
+			<dict>
+				<key>BundlePath</key>
+				<string>SMCAMDProcessor.kext</string>
+				<key>Comment</key>
+				<string>SMCAMD Processor</string>
+				<key>Enabled</key>
+				<true/>
+				<key>ExecutablePath</key>
+				<string>Contents/MacOS/SMCAMDProcessor</string>
+				<key>MaxKernel</key>
+				<string></string>
+				<key>MinKernel</key>
+				<string></string>
 				<key>PlistPath</key>
 				<string>Contents/Info.plist</string>
 			</dict>
@@ -433,7 +434,7 @@
 			<key>ThirdPartyDrives</key>
 			<false/>
 			<key>XhciPortLimit</key>
-			<true/>
+			<false/>
 		</dict>
 		<key>Scheme</key>
 		<dict>
@@ -976,11 +977,41 @@
 				<key>Mask</key>
 				<data>/////wAAAP///wA=</data>
 				<key>MaxKernel</key>
-				<string>20.99.99</string>
+				<string>20.3.0</string>
 				<key>MinKernel</key>
 				<string>17.0.0</string>
 				<key>Replace</key>
 				<data>u7xP6njpXQAAAJA=</data>
+				<key>ReplaceMask</key>
+				<data></data>
+				<key>Skip</key>
+				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>Arch</key>
+				<string>x86_64</string>
+				<key>Base</key>
+				<string></string>
+				<key>Comment</key>
+				<string>DhinakG - cpuid_set_cpufamily - force CPUFAMILY_INTEL_PENRYN - 11.3b1</string>
+				<key>Count</key>
+				<integer>1</integer>
+				<key>Enabled</key>
+				<true/>
+				<key>Find</key>
+				<data>MdIAAIA9AAAAAAZ1AA==</data>
+				<key>Identifier</key>
+				<string>kernel</string>
+				<key>Limit</key>
+				<integer>0</integer>
+				<key>Mask</key>
+				<data>//8AAP//AAAA////AA==</data>
+				<key>MaxKernel</key>
+				<string>20.99.99</string>
+				<key>MinKernel</key>
+				<string>20.4.0</string>
+				<key>Replace</key>
+				<data>swG6vE/qeOldAAAAkA==</data>
 				<key>ReplaceMask</key>
 				<data></data>
 				<key>Skip</key>
@@ -1631,11 +1662,11 @@
 			<key>HideAuxiliary</key>
 			<false/>
 			<key>PickerAttributes</key>
-			<integer>17</integer>
+			<integer>1</integer>
 			<key>PickerAudioAssist</key>
 			<false/>
 			<key>PickerMode</key>
-			<string>Builtin</string>
+			<string>External</string>
 			<key>PollAppleHotKeys</key>
 			<false/>
 			<key>ShowPicker</key>
@@ -1652,7 +1683,7 @@
 			<key>ApplePanic</key>
 			<true/>
 			<key>DisableWatchDog</key>
-			<true/>
+			<false/>
 			<key>DisplayDelay</key>
 			<integer>0</integer>
 			<key>DisplayLevel</key>
@@ -1679,8 +1710,6 @@
 				<string>CustomOS</string>
 				<key>Path</key>
 				<string>PciRoot(0x0)/Pci(0x1,0x1)/Pci(0x0,0x0)/NVMe(0x1,11-22-33-44-55-66-77-88)/HD(1,GPT,00000000-0000-0000-0000-000000000000,0x800,0x64000)/\EFI\BOOT\BOOTX64.EFI</string>
-				<key>TextMode</key>
-				<false/>
 			</dict>
 		</array>
 		<key>Security</key>
@@ -1693,10 +1722,8 @@
 			<integer>0</integer>
 			<key>AuthRestart</key>
 			<false/>
-			<key>BlacklistAppleUpdate</key>
-			<true/>
 			<key>BootProtect</key>
-			<string>None</string>
+			<string>Bootstrap</string>
 			<key>DmgLoading</key>
 			<string>Signed</string>
 			<key>EnablePassword</key>
@@ -1717,7 +1744,176 @@
 			<string>Optional</string>
 		</dict>
 		<key>Tools</key>
-		<array/>
+		<array>
+			<dict>
+				<key>Arguments</key>
+				<string></string>
+				<key>Auxiliary</key>
+				<false/>
+				<key>Comment</key>
+				<string>Not signed for security reasons</string>
+				<key>Enabled</key>
+				<false/>
+				<key>Name</key>
+				<string>UEFI Shell</string>
+				<key>Path</key>
+				<string>OpenShell.efi</string>
+			</dict>
+			<dict>
+				<key>Arguments</key>
+				<string>Shutdown</string>
+				<key>Auxiliary</key>
+				<true/>
+				<key>Comment</key>
+				<string>Perform shutdown</string>
+				<key>Enabled</key>
+				<false/>
+				<key>Name</key>
+				<string>Shutdown</string>
+				<key>Path</key>
+				<string>ResetSystem.efi</string>
+			</dict>
+			<dict>
+				<key>Name</key>
+				<string>BootKicker.efi</string>
+				<key>Comment</key>
+				<string>BootKicker.efi</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>BootKicker.efi</string>
+				<key>Arguments</key>
+				<string></string>
+				<key>Auxiliary</key>
+				<true/>
+			</dict>
+			<dict>
+				<key>Name</key>
+				<string>ChipTune.efi</string>
+				<key>Comment</key>
+				<string>ChipTune.efi</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>ChipTune.efi</string>
+				<key>Arguments</key>
+				<string></string>
+				<key>Auxiliary</key>
+				<true/>
+			</dict>
+			<dict>
+				<key>Name</key>
+				<string>CleanNvram.efi</string>
+				<key>Comment</key>
+				<string>CleanNvram.efi</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>CleanNvram.efi</string>
+				<key>Arguments</key>
+				<string></string>
+				<key>Auxiliary</key>
+				<true/>
+			</dict>
+			<dict>
+				<key>Name</key>
+				<string>GopStop.efi</string>
+				<key>Comment</key>
+				<string>GopStop.efi</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>GopStop.efi</string>
+				<key>Arguments</key>
+				<string></string>
+				<key>Auxiliary</key>
+				<true/>
+			</dict>
+			<dict>
+				<key>Name</key>
+				<string>HdaCodecDump.efi</string>
+				<key>Comment</key>
+				<string>HdaCodecDump.efi</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>HdaCodecDump.efi</string>
+				<key>Arguments</key>
+				<string></string>
+				<key>Auxiliary</key>
+				<true/>
+			</dict>
+			<dict>
+				<key>Name</key>
+				<string>KeyTester.efi</string>
+				<key>Comment</key>
+				<string>KeyTester.efi</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>KeyTester.efi</string>
+				<key>Arguments</key>
+				<string></string>
+				<key>Auxiliary</key>
+				<true/>
+			</dict>
+			<dict>
+				<key>Name</key>
+				<string>MmapDump.efi</string>
+				<key>Comment</key>
+				<string>MmapDump.efi</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>MmapDump.efi</string>
+				<key>Arguments</key>
+				<string></string>
+				<key>Auxiliary</key>
+				<true/>
+			</dict>
+			<dict>
+				<key>Name</key>
+				<string>OpenControl.efi</string>
+				<key>Comment</key>
+				<string>OpenControl.efi</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>OpenControl.efi</string>
+				<key>Arguments</key>
+				<string></string>
+				<key>Auxiliary</key>
+				<true/>
+			</dict>
+			<dict>
+				<key>Name</key>
+				<string>RtcRw.efi</string>
+				<key>Comment</key>
+				<string>RtcRw.efi</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>RtcRw.efi</string>
+				<key>Arguments</key>
+				<string></string>
+				<key>Auxiliary</key>
+				<true/>
+			</dict>
+			<dict>
+				<key>Name</key>
+				<string>VerifyMsrE2.efi</string>
+				<key>Comment</key>
+				<string>VerifyMsrE2.efi</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>VerifyMsrE2.efi</string>
+				<key>Arguments</key>
+				<string></string>
+				<key>Auxiliary</key>
+				<true/>
+			</dict>
+		</array>
 	</dict>
 	<key>NVRAM</key>
 	<dict>
@@ -1740,13 +1936,13 @@
 				<key>SystemAudioVolume</key>
 				<data>Rg==</data>
 				<key>boot-args</key>
-				<string>-v keepsyms=1 debug=0x100 npci=0x2000 alcid=1</string>
+				<string>-v debug=0x100 keepsyms=1 alcid=3 npci=0x2000 shikigva=128</string>
 				<key>run-efi-updater</key>
 				<string>No</string>
 				<key>csr-active-config</key>
 				<data>AAAAAA==</data>
 				<key>prev-lang:kbd</key>
-				<data>cnUtUlU6MjUy</data>
+				<data>DgAA</data>
 			</dict>
 		</dict>
 		<key>Delete</key>
@@ -1783,8 +1979,6 @@
 				<string>bluetoothInternalControllerInfo</string>
 				<string>flagstate</string>
 				<string>fmm-computer-name</string>
-				<string>fmm-mobileme-token-FMM</string>
-				<string>fmm-mobileme-token-FMM-BridgeHasAccount</string>
 				<string>nvda_drv</string>
 				<string>prev-lang:kbd</string>
 			</array>
@@ -1813,19 +2007,19 @@
 			<key>SystemMemoryStatus</key>
 			<string>Auto</string>
 			<key>MLB</key>
-			<string>M0000000000000001</string>
+			<string>C02908701GUJG36A8</string>
 			<key>ProcessorType</key>
 			<integer>0</integer>
 			<key>ROM</key>
-			<data>ESIzRFVm</data>
+			<data>pF5gwiRF</data>
 			<key>SpoofVendor</key>
 			<true/>
 			<key>SystemProductName</key>
 			<string>iMacPro1,1</string>
 			<key>SystemSerialNumber</key>
-			<string>W00000000001</string>
+			<string>C02Y903HHX87</string>
 			<key>SystemUUID</key>
-			<string>00000000-0000-0000-0000-000000000000</string>
+			<string>99C49109-9EC0-46C2-BD5D-583E103C9D59</string>
 		</dict>
 		<key>UpdateDataHub</key>
 		<true/>
@@ -1866,7 +2060,7 @@
 			<key>MinimumVolume</key>
 			<integer>20</integer>
 			<key>PlayChime</key>
-			<string>Auto</string>
+			<false/>
 			<key>VolumeAmplifier</key>
 			<integer>0</integer>
 		</dict>
@@ -1874,8 +2068,18 @@
 		<true/>
 		<key>Drivers</key>
 		<array>
-			<string>OpenRuntime.efi</string>
 			<string>HfsPlus.efi</string>
+			<string>OpenRuntime.efi</string>
+			<string>OpenCanopy.efi</string>
+			<string>AudioDxe.efi</string>
+			<string>CrScreenshotDxe.efi</string>
+			<string>HiiDatabase.efi</string>
+			<string>NvmExpressDxe.efi</string>
+			<string>OpenUsbKbDxe.efi</string>
+			<string>Ps2KeyboardDxe.efi</string>
+			<string>Ps2MouseDxe.efi</string>
+			<string>UsbMouseDxe.efi</string>
+			<string>XhciDxe.efi</string>
 		</array>
 		<key>Input</key>
 		<dict>
