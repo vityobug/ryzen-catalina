@@ -16,7 +16,7 @@
   - [Step 3 - Install](#step-3---install)
   - [Step 4 - Boot from SSD](#step-4---boot-from-ssd)
     - [Step 4.1 - Dual boot](#step-41---dual-boot)
-  - [Step 5 (Optional) - Secure Your Installation](#step-6-optional---secure-your-installation)
+  - [Step 5 (Optional) - Secure Your Installation](#step-5-optional---secure-your-installation)
 - [Known Issues](#known-issues)
   
 ## Introduction
