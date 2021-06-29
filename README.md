@@ -1,4 +1,4 @@
-# Lazy Man's Guide: macOS Catalina on AMD <!-- omit in toc -->
+# Lazy Man's Guide: macOS Catalina on AMD Ryzen <!-- omit in toc -->
 
 - [Introduction](#introduction)
 - [Terminology](#terminology)
@@ -16,10 +16,8 @@
   - [Step 3 - Install](#step-3---install)
   - [Step 4 - Boot from SSD](#step-4---boot-from-ssd)
     - [Step 4.1 - Dual boot](#step-41---dual-boot)
-  - [Step 5 - Make Ethernet "Built-in"](#step-5---make-ethernet-built-in)
-  - [Step 6 (Optional) - Secure Your Installation](#step-6-optional---secure-your-installation)
+  - [Step 5 (Optional) - Secure Your Installation](#step-6-optional---secure-your-installation)
 - [Known Issues](#known-issues)
-- [Update History](#update-history)
   
 ## Introduction
 
@@ -168,11 +166,7 @@ be sure they see unmodified ACPI tables. Another reason to use OS-agnostic boot 
 your Linux or Windows even if you screw up your OC partition. The only disadvantage of rEFInd is that it can be pretty difficult
 to configure. Please follow [this guide](https://schdck.github.io/Installing-refind-from-Windows-10) for detailed Windows installation instructions.
 
-### Step 5 - Make Ethernet "Built-in"
-
-* No need for this board/CPU combination
-
-### Step 6 (Optional) - Secure Your Installation
+### Step 5 (Optional) - Secure Your Installation
 
 You may want to secure your system by signing your EFI boot files. Open _config.plist_ once again and change **Misc** -> **Security** -> **Vault** to *Secure*. Then go to unpacked OC installation folder, cd to *Utilities/CreateVault* and run *sign.command*. Detailed instructions are [here](https://khronokernel-2.gitbook.io/opencore-vanilla-desktop-guide/extras/security#vault).
 
@@ -183,12 +177,5 @@ You may want to secure your system by signing your EFI boot files. Open _config.
 * Docker Desktop doesn't work. Docker uses Intel-specific virtualization which apparently won't work with Ryzen. Some people
 reported Docker works ok inside VirtualBox.
 * The system boots very slowly (15-20 seconds to OC boot menu) with OC 0.5.9. It wasn't the case with older OC versions.
-* macOS recognizes my random Gembird USB Bluetooth 4.0 dongle but the keyboard doesn't pair. Unfortunately, macOS is very picky when it comes to WiFi and Bluetooth support.
 
-## Update History
 
-* _2020/12/25_ - Updated to OpenCore 0.6.4, recreated `config.plist` from scratch, updated Lilu, VirtualSMC, WhateverGreen, AppleALC, RealtekRTL8111 to the latest versions, added "official" OC SSDT-EC-USBX-DESKTOP.aml, removed unnecessary EFI drivers and OC debug tools.
-* _2020/11/08_ - Updated to OpenCore 0.6.2, updated `config.plist` for new OC layout, applied new [AMD plist patches](https://github.com/AMD-OSX/AMD_Vanilla/tree/opencore/17h), updated to the latest Kexts (AppleALC, Lilu, WhateverGreen, VirtualSMC), updated README.md.
-* _2020/08/22_ - Added more details to the guide.
-* _2020/08/01_ - Added OpenCore 0.5.9, updated to the latest Kexts (Lilu, VirtualSMC, Whatevergreen etc), added AMD-USB-Map.kext
-for USB 2.0 support (thanks to GhostBoy805 and [this Reddit thread](https://www.reddit.com/r/hackintosh/comments/f2azi9/no_usb_20_asrock_b450_pro4/)), removed NullCPUPowerManagement.kext.
